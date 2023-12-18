@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://k1mjunyoung.github.io/blog/sitemap-index.xml
-Host: https://k1mjunyoung.github.io
+Sitemap: https://blog.kimjunyoung.com/blog/sitemap-index.xml
+Host: https://blog.kimjunyoung.com
