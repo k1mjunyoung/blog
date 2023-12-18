@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://blog.kimjunyoung.com/blog/sitemap-index.xml
+Sitemap: https://blog.kimjunyoung.com/sitemap-index.xml
 Host: https://blog.kimjunyoung.com
