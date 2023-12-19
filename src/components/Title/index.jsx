@@ -24,7 +24,8 @@ const Title = ({ size, children }) => {
   const sizes = {
     sm: "19.2px",
     md: "25.6px",
-    bg: "33.6px",
+    // bg: "33.6px",
+    bg: "25.6px",
   }
 
   return <Wrapper size={sizes[size]}> {children} </Wrapper>
