@@ -1,353 +1,168 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of 🪐]]></title><description><![CDATA[안녕하세요. 주니어 개발자 김준영입니다.]]></description><link>https://blog.kimjunyoung.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Dec 2023 06:45:11 GMT</lastBuildDate><item><title><![CDATA[🤩 4. Other Tips]]></title><description><![CDATA[How to change the favicon? The favicon is located in . If you replace that image, the favicon will change. If you want to change the name of…]]></description><link>https://blog.kimjunyoung.com/other-tips/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/other-tips/</guid><pubDate>Tue, 04 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;How to change the favicon?&lt;/h2&gt;
-&lt;p&gt;The favicon is located in &lt;code class=&quot;language-text&quot;&gt;static/favicon.png&lt;/code&gt;. If you replace that image, the favicon will change.&lt;/p&gt;
-&lt;p&gt;If you want to change the name of the favicon, change the &lt;code class=&quot;language-text&quot;&gt;icon&lt;/code&gt; property of &lt;code class=&quot;language-text&quot;&gt;gatsby-plugin-manifest&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;Utterance is not working properly.&lt;/h2&gt;
-&lt;p&gt;In the http environment, utterance may not work properly. Host your blog with https.&lt;/p&gt;
-&lt;h2&gt;How to set OG Image?&lt;/h2&gt;
-&lt;p&gt;Replace the &lt;code class=&quot;language-text&quot;&gt;og-image.png&lt;/code&gt; file in the &lt;code class=&quot;language-text&quot;&gt;/static&lt;/code&gt; directory with your own image file.&lt;/p&gt;
-&lt;h2&gt;Do you have another question?&lt;/h2&gt;
-&lt;p&gt;Please comment on this article or &lt;a href=&quot;https://github.com/devHudi/gatsby-starter-hoodie/issues&quot;&gt;open an issue&lt;/a&gt; in the gatsby-starter-hoodie repository. Your participation advances gatsby-starter-hoodie. Thank you 😎.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤔 3. Writing Guide]]></title><description><![CDATA[1. Add a post You can add posts by creating a new markdown document in the  path. 1-1. Post file structure There are two ways to add a new…]]></description><link>https://blog.kimjunyoung.com/writing-guide/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/writing-guide/</guid><pubDate>Mon, 03 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. Add a post&lt;/h2&gt;
-&lt;p&gt;You can add posts by creating a new markdown document in the &lt;code class=&quot;language-text&quot;&gt;contents/post&lt;/code&gt; path.&lt;/p&gt;
-&lt;h3&gt;1-1. Post file structure&lt;/h3&gt;
-&lt;p&gt;There are two ways to add a new document. The first is to create a markdown file for a single document without a directory. If you are writing about JavaScript, you can create a &lt;code class=&quot;language-text&quot;&gt;about-javascript.md&lt;/code&gt; file in the &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;The second is to create a directory and create an &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; file in it. This method is useful when the document contains several additional files such as picture files.&lt;/p&gt;
-&lt;p&gt;Each file name or directory name becomes a unique address of the document and can be accessed as follows. &lt;code class=&quot;language-text&quot;&gt;https://siteURL/about-javascript&lt;/code&gt;.&lt;/p&gt;
-&lt;h3&gt;1-2. Frontmatter&lt;/h3&gt;
-&lt;p&gt;The Markdown document you create contains the document&apos;s metadata called frontmatter.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
-title: &quot;🤔 3. Writing Guide&quot;
-description: &quot;How to write and add a post?&quot;
-date: 2021-05-03
-update: 2021-05-03
-tags:
-  - hoodie
-  - writing-guide
-series: &quot;Getting started your blog with gatsby-starter-hoodie&quot;
----&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Above is the frontmatter of the document you are currently reading. Among them, title and date are required. It is recommended to enclose the string with spaces in quotation marks.&lt;/p&gt;
-&lt;h3&gt;1-3. Writing markdown&lt;/h3&gt;
-&lt;p&gt;If you have written a Frontmatter, you can write your markdown document under it. gatsby-starter-hoodie supports most Markdown syntax. To learn more about Markdown syntax, see the &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;Mastering Markdown&lt;/a&gt; documentation on GitHub.&lt;/p&gt;
-&lt;h2&gt;2. Syntax Highlighting &amp;#x26; Katex&lt;/h2&gt;
-&lt;h3&gt;2-1. Syntax Highlighting&lt;/h3&gt;
-&lt;p&gt;Syntax highlighting based on Prism.JS is supported.&lt;/p&gt;
-&lt;h4&gt;Examples&lt;/h4&gt;
-&lt;p&gt;Javascript&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Python&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;It supports a wider variety of other languages. Check it out on the &lt;a href=&quot;https://prismjs.com/&quot;&gt;Prism.js website&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;2-2. Katex&lt;/h3&gt;
-&lt;p&gt;It supports Katex syntax, you can easily express complex formulas.&lt;/p&gt;
-&lt;h4&gt;Inline mode&lt;/h4&gt;
-&lt;p&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;E = m c^{2}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8141079999999999em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h4&gt;Block mode&lt;/h4&gt;
-&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msubsup&gt;&lt;mo&gt;∫&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/msubsup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\int_{0}^{\infty} f(x) dx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.326242em;vertical-align:-0.9119499999999999em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop op-symbol large-op&quot; style=&quot;margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;&quot;&gt;∫&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.414292em;&quot;&gt;&lt;span style=&quot;top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.8129000000000004em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.9119499999999999em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;h2&gt;3. Add images to a post&lt;/h2&gt;
-&lt;p&gt;You can easily embed images using relative paths. It is easy to manage documents containing images by creating a directory.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 61.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABUsxAixiE/wD/xAAbEAACAwADAAAAAAAAAAAAAAABAgADBBEiM//aAAgBAQABBQIFOW7ETHWtk0ezWFT/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/AYf/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/AWsIf//EABkQAAMBAQEAAAAAAAAAAAAAAAABIRECMf/aAAgBAQAGPwJaTWj0fXdaeIkMh//EABoQAQADAQEBAAAAAAAAAAAAAAEAETFRIUH/2gAIAQEAAT8hFdQ6EfUPBjowSgW0YQgXQ9r7FoKHSf/aAAwDAQACAAMAAAAQeN//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EJwp/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/EIG3/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFRQf/aAAgBAQABPxA3pFmq4m2wUjT9WvYy3aVDOTlbQ8O892CBa9ZtcY9TG1n/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Sample Image Caption&apos; title=&apos;&apos; src=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg&apos; srcset=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/0b705/sample-image.jpg 170w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/31389/sample-image.jpg 340w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg 680w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/29373/sample-image.jpg 1020w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/232dc/sample-image.jpg 1360w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg 1920w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Sample Image Caption&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Images are loaded with Lazy Loading, so you can secure fast document loading speed.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of 🪐]]></title><description><![CDATA[안녕하세요. 주니어 개발자 김준영입니다.]]></description><link>https://blog.kimjunyoung.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Dec 2023 07:30:04 GMT</lastBuildDate><item><title><![CDATA[🐟 객체는 붕어빵이 아닙니다]]></title><description><![CDATA[…]]></description><link>https://blog.kimjunyoung.com/oop/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/oop/</guid><pubDate>Thu, 30 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;객체지향이란&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;⚠ The extension of the file must be set to lowercase.&lt;/p&gt;
+&lt;p&gt;객체끼리는 서로 &lt;strong&gt;공존&lt;/strong&gt;하는 관계&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;4. Tagging&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.823529411764707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB36AH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAT8hj//aAAwDAQACAAMAAAAQAA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABPxABf//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;tag example&apos; title=&apos;&apos; src=&apos;/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg&apos; srcset=&apos;/static/82ce4bec7f5360eef32a473171b181af/0b705/tag-example.jpg 170w,
-/static/82ce4bec7f5360eef32a473171b181af/31389/tag-example.jpg 340w,
-/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg 680w,
-/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg 737w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;You can classify and search documents by tag set in Frontmatter. All tags you set can be viewed and searched in &lt;code class=&quot;language-text&quot;&gt;https://siteUrl/tags&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;5. Series&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 677px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 17.058823529411764%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdqwSD//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABBQIv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAARD/2gAIAQEAAT8hF//aAAwDAQACAAMAAAAQ8A//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAYEAEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAQABPxAk0GGHCv/Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;series example&apos; title=&apos;&apos; src=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; srcset=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/0b705/series-example.jpg 170w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/31389/series-example.jpg 340w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg 677w&apos; sizes=&apos;(max-width: 677px) 100vw, 677px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;You can publish multiple related documents in a series. The series set in Frontmatter is grouped together and shown at the top of the document. This can be useful for serialized documents with an order. Series documents are displayed in ascending order of creation date.&lt;/p&gt;
-&lt;p&gt;The current document is also set in a series called &lt;code class=&quot;language-text&quot;&gt;Getting started your blog with gatsby-starter-hoodie&lt;/code&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🚀 2. Quick Start]]></title><description><![CDATA[Getting started your blog with gatsby-starter-hoodie by following steps below. It's very easy 😉. 1. Create a Gatsby site Make sure you have…]]></description><link>https://blog.kimjunyoung.com/quick-start/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/quick-start/</guid><pubDate>Sun, 02 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Getting started your blog with gatsby-starter-hoodie by following steps below. It&apos;s very easy 😉.&lt;/p&gt;
-&lt;h2&gt;1. Create a Gatsby site&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Make sure you have &lt;strong&gt;node.js&lt;/strong&gt; and &lt;strong&gt;gatsby-cli&lt;/strong&gt; installed on your computer.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npx gatsby new my-hoodie-blog https://github.com/devHudi/gatsby-starter-hoodie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. Start dev server&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd my-hoodie-blog
-$ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now you can access to your blog at localhost:8000.&lt;/p&gt;
-&lt;h2&gt;3. Create your own Github repository&lt;/h2&gt;
-&lt;p&gt;Utterance comment widget is based on &lt;strong&gt;Github issue system&lt;/strong&gt;. So you need your own GitHub repository. Also, if you want to publish your blog through Github Pages or Netlify, the Github Repository is a necessary.&lt;/p&gt;
-&lt;p&gt;If you don&apos;t know how to create a GitHub repository, follow the &lt;a href=&quot;https://docs.github.com/en/github/getting-started-with-github/create-a-repo&quot;&gt;official GitHub documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;Add remote repository&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git init
-$ git remote add origin https://github.com/{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;4. Write blog-config.js&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;MY BLOG&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello, This is my blog&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YOUR NAME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;siteUrl&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://myblog.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://github.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;facebook&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.facebook.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;instagram&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.instagram.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.google.com/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;utterances&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pathname&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;gatsby-starter-hoodie provides a configuration file called &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt;. In this file, you can configure blog, biography (profile), and utterance. The website settings you are currently viewing are as above.&lt;/p&gt;
-&lt;p&gt;Configure &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt; to suit your blog. However, it is recommended not to modify &lt;code class=&quot;language-text&quot;&gt;utterances.type&lt;/code&gt;.&lt;/p&gt;
-&lt;h3&gt;Change profile image&lt;/h3&gt;
-&lt;p&gt;Replace &lt;code class=&quot;language-text&quot;&gt;static/profile.png&lt;/code&gt; with the image you want. To change the image file name, you need to change the source code of &lt;code class=&quot;language-text&quot;&gt;src/components/Bio.jsx&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;5. Add your content&lt;/h2&gt;
-&lt;p&gt;Markdown content is in &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt;. You can write and add your articles like the sample posts here. &lt;a href=&quot;/writing-guide&quot;&gt;Click here&lt;/a&gt; to see the detail writing guide.&lt;/p&gt;
-&lt;h2&gt;6. Deploy your blog&lt;/h2&gt;
-&lt;h3&gt;6-1 via Netlify&lt;/h3&gt;
-&lt;p&gt;Follow the Connecting to Netlify steps in &lt;a href=&quot;https://www.netlify.com/blog/2016/02/24/a-step-by-step-guide-gatsby-on-netlify/&quot;&gt;A Step-by-Step Guide: Gatsby on Netlify&lt;/a&gt;. It&apos;s not difficult.&lt;/p&gt;
-&lt;p&gt;If you connect the github repository using Netlify, it is automatically distributed whenever you push it, so it is convenient.&lt;/p&gt;
-&lt;h3&gt;6-2. via Github Pages&lt;/h3&gt;
-&lt;h4&gt;Case 1&lt;/h4&gt;
-&lt;p&gt;If the repository name is in the form of &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME} .github.io&lt;/code&gt;, run it below.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Case 2&lt;/h4&gt;
-&lt;p&gt;If the repository name is not in the form of &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME} .github.io&lt;/code&gt;, run it below.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh-prefix-paths&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In the above case, you need to change &lt;code class=&quot;language-text&quot;&gt;pathPrefix&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; to your repository name.&lt;/p&gt;
-&lt;h3&gt;6-3. other platforms&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You can build the gatsby website with the command above. The build output is created in the &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; directory. Deploy the &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; directory using the command for the platform you want to deploy.&lt;/p&gt;
-&lt;h2&gt;7. Cutomize&lt;/h2&gt;
-&lt;h3&gt;Project Structure&lt;/h3&gt;
-&lt;p&gt;You can customize your own gatsby-starter-hoodie by referring to the following file structure 🙊.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;├── node_modules
-├── contents
-│   └── posts // your articles are here
-├── public // build outputs are here
-└── src
-    ├── assets
-    │   └── theme // theme config is here
-    ├── components
-    │   └── Article
-    │       └── Body
-    │           └── StyledMarkdown
-    │               └── index.jsx // markdown styles are here
-    │   ...
-    ├── fonts // webfonts are here
-    ├── hooks
-    ├── images
-    ├── pages // page components are here
-    ├── reducers
-    ├── templates // post components are here
-    └── utils&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[🎇 1. About gatsby-starter-hoodie]]></title><description><![CDATA[About gatsby-starter-hoodie gatsby-starter-hoodie is a gatsby theme created for writing tech blogs. Markdown, Code Highlighting in various…]]></description><link>https://blog.kimjunyoung.com/about-hoodie/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/about-hoodie/</guid><pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;About gatsby-starter-hoodie&lt;/h2&gt;
-&lt;p&gt;gatsby-starter-hoodie is a gatsby theme created for writing tech blogs. Markdown, Code Highlighting in various programming languages, and Katex syntax are supported. Also, you can easily categorize articles into tags and series.&lt;/p&gt;
-&lt;p&gt;Start your blog with a neatly designed gatsby-starter-hoodie that supports dark mode.&lt;/p&gt;
-&lt;h2&gt;Features&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Markdown&lt;/li&gt;
-&lt;li&gt;Code Highlighting&lt;/li&gt;
-&lt;li&gt;Katex Syntax&lt;/li&gt;
-&lt;li&gt;Dark Mode (Responsive to the settings of the OS)&lt;/li&gt;
-&lt;li&gt;Tag Categoriazation&lt;/li&gt;
-&lt;li&gt;Series Categorization&lt;/li&gt;
-&lt;li&gt;Responsive Web&lt;/li&gt;
-&lt;li&gt;SEO&lt;/li&gt;
-&lt;li&gt;Utterance (Comment widget)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;현실세계에서는 &lt;strong&gt;단방향&lt;/strong&gt;으로 접근&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;사람 ➡️ 자동차: 단지 도구의 역할&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;객체지향의 세계에서는 &lt;strong&gt;양방향&lt;/strong&gt;으로 접근(&lt;strong&gt;요청 ↔️ 응답&lt;/strong&gt;)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;사람 ➡️ 자동차: 엑셀 밟기 요청
+자동차 ➡️ 사람: 가속 응답(기름 소모)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Let&apos;s get started&lt;/h2&gt;
-&lt;p&gt;Follow the &lt;a href=&quot;/quick-start&quot;&gt;Quick Start&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤩 4. 그 외 팁들]]></title><description><![CDATA[파비콘은 어떻게 변경하나요?  에 파비콘 파일이 위치해 있습니다. 이미지 파일을 대체하면 파비콘을 변경할 수 있습니다. 만약 파비콘 파일의 이름을 변경하고 싶다면,  파일의  에서  속성을 변경하셔야합니다. Utterance…]]></description><link>https://blog.kimjunyoung.com/other-tips-kr/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/other-tips-kr/</guid><pubDate>Sun, 04 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;파비콘은 어떻게 변경하나요?&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;static/favicon.png&lt;/code&gt; 에 파비콘 파일이 위치해 있습니다. 이미지 파일을 대체하면 파비콘을 변경할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;만약 파비콘 파일의 이름을 변경하고 싶다면, &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; 파일의 &lt;code class=&quot;language-text&quot;&gt;gatsby-plugin-manifest&lt;/code&gt; 에서 &lt;code class=&quot;language-text&quot;&gt;icon&lt;/code&gt; 속성을 변경하셔야합니다.&lt;/p&gt;
-&lt;h2&gt;Utterance 가 제대로 작동하지 않아요.&lt;/h2&gt;
-&lt;p&gt;http 환경에서는 Utterance 가 제대로 작동하지 않을 수 있습니다. 여러분의 웹사이트를 https 환경으로 제공하세요.&lt;/p&gt;
-&lt;h2&gt;OG Image 를 설정하고 싶어요.&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;/static&lt;/code&gt; 디렉토리의 &lt;code class=&quot;language-text&quot;&gt;og-image.png&lt;/code&gt; 파일을 여러분이 원하는 이미지 파일로 대체하세요.&lt;/p&gt;
-&lt;h2&gt;다른 질문이 있으신가요?&lt;/h2&gt;
-&lt;p&gt;이 문서에 댓글을 달거나 gatsby-starter-hoodie 레포지토리에 &lt;a href=&quot;https://github.com/devHudi/gatsby-starter-hoodie/issues&quot;&gt;이슈를 열어주세요&lt;/a&gt;. 여러분의 참여가 gatsby-starter-hoodie 를 더욱 발전시킵니다. 감사해요 😎.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤔 3. 작성 가이드]]></title><description><![CDATA[1. 포스트 추가하기  경로에 새로운 마크다운 파일을 생성하여 여러분의 글을 추가할 수 있습니다. 1-…]]></description><link>https://blog.kimjunyoung.com/writing-guide-kr/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/writing-guide-kr/</guid><pubDate>Sat, 03 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. 포스트 추가하기&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;contents/post&lt;/code&gt; 경로에 새로운 마크다운 파일을 생성하여 여러분의 글을 추가할 수 있습니다.&lt;/p&gt;
-&lt;h3&gt;1-1. 포스트 파일 구조&lt;/h3&gt;
-&lt;p&gt;새로운 문서를 추가하는 방법에는 두가지가 있습니다. 첫번째는 디렉토리 없이 문서를 생성하는 방법입니다. 만약 여러분이 Javascript 에 관한 문서를 생성한다면, &lt;code class=&quot;language-text&quot;&gt;about-javascript.md&lt;/code&gt; 파일을 &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt; 디렉토리에 추가할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;두번째 방법은 먼저 디렉토리를 생성한 뒤, 디렉토리 안에 &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; 파일을 추가하는 것 입니다. 이 방법은 문서 내에 여러 이미지 파일 등 부수적인 파일 여러개가 포함되었을 때 유용합니다.&lt;/p&gt;
-&lt;p&gt;첫번째 방법으로 생성한 파일명이나, 두번째 방법으로 생성한 디렉토리 이름은 웹사이트에서 고유의 주소를 갖습니다. &lt;code class=&quot;language-text&quot;&gt;https://siteURL/about-javascript&lt;/code&gt; 와 같이요.&lt;/p&gt;
-&lt;h3&gt;1-2. Frontmatter&lt;/h3&gt;
-&lt;p&gt;마크다운은 문서의 메타데이터인 Frontmatter 라 불리는 정보를 가지고 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
-title: &quot;🤔 3. 작성 가이드&quot;
-description: &quot;어떻게 글을 작성하고 추가할까요?&quot;
-date: 2021-04-03
-update: 2021-04-03
-tags:
-  - hoodie
-  - writing-guide
-series: &quot;gatsby-starter-hoodie 로 블로그 시작하기&quot;
----&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위는 지금 여러분이 읽고 있는 문서의 Frontmatter 입니다. &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; 과 &lt;code class=&quot;language-text&quot;&gt;date&lt;/code&gt; 는 필수 값입니다. 띄어쓰기를 포함된 문자열을 입력할 때에는 따옴표로 감싸는 것을 추천합니다.&lt;/p&gt;
-&lt;h3&gt;1-3. 마크다운 작성하기&lt;/h3&gt;
-&lt;p&gt;만약 Frontmatter 까지 작성했다면, 여러분은 그 아래에 마크다운 문서를 작성하면 됩니다. gatsby-starter-hoodie 는 대부분의 마크다운 문법을 지원합니다. 마크다운 작성 방법을 알고 싶다면, Github 의 &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;Mastering Markdown&lt;/a&gt; 문서를 참고하세요.&lt;/p&gt;
-&lt;h2&gt;2. 코드 하이라이팅 &amp;#x26; Katex&lt;/h2&gt;
-&lt;h3&gt;2-1. 코드 하이라이팅&lt;/h3&gt;
-&lt;p&gt;Prism.JS 에 기반한 코드 하이라이팅이 제공됩니다.&lt;/p&gt;
-&lt;h4&gt;예시&lt;/h4&gt;
-&lt;p&gt;Javascript&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Python&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;그 외 더 많은 언어를 제공합니다. 제공되는 언어를 확인하고 싶다면, &lt;a href=&quot;https://prismjs.com/&quot;&gt;Prism.js 웹사이트&lt;/a&gt; 를 참고하세요.&lt;/p&gt;
-&lt;h3&gt;2-2. Katex&lt;/h3&gt;
-&lt;p&gt;Katex 문법을 지원하여 복잡한 수식도 쉽게 표현할 수 있습니다.&lt;/p&gt;
-&lt;h4&gt;인라인 모드&lt;/h4&gt;
-&lt;p&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;E = m c^{2}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8141079999999999em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h4&gt;블럭 모드&lt;/h4&gt;
-&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msubsup&gt;&lt;mo&gt;∫&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/msubsup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\int_{0}^{\infty} f(x) dx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.326242em;vertical-align:-0.9119499999999999em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop op-symbol large-op&quot; style=&quot;margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;&quot;&gt;∫&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.414292em;&quot;&gt;&lt;span style=&quot;top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.8129000000000004em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.9119499999999999em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;h2&gt;3. 글에 이미지 추가하기&lt;/h2&gt;
-&lt;p&gt;상대경로를 이용하여 쉽게 이미지를 추가할 수 있습니다. 디렉토리를 생성하고 그 안에 &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; 를 추가하여, 글을 추가하는 방법으로 작성해야 이미지 관리가 쉽습니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 61.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABUsxAixiE/wD/xAAbEAACAwADAAAAAAAAAAAAAAABAgADBBEiM//aAAgBAQABBQIFOW7ETHWtk0ezWFT/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/AYf/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/AWsIf//EABkQAAMBAQEAAAAAAAAAAAAAAAABIRECMf/aAAgBAQAGPwJaTWj0fXdaeIkMh//EABoQAQADAQEBAAAAAAAAAAAAAAEAETFRIUH/2gAIAQEAAT8hFdQ6EfUPBjowSgW0YQgXQ9r7FoKHSf/aAAwDAQACAAMAAAAQeN//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EJwp/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/EIG3/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFRQf/aAAgBAQABPxA3pFmq4m2wUjT9WvYy3aVDOTlbQ8O892CBa9ZtcY9TG1n/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;샘플 이미지 캡션&apos; title=&apos;&apos; src=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg&apos; srcset=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/0b705/sample-image.jpg 170w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/31389/sample-image.jpg 340w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg 680w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/29373/sample-image.jpg 1020w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/232dc/sample-image.jpg 1360w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg 1920w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;샘플 이미지 캡션&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;이미지는 Lazy Loading 으로 로드되어, 빠른 초기 문서 로딩 속도를 확보할 수 있습니다.&lt;/p&gt;
+&lt;h2&gt;객체지향 프로그래밍&lt;/h2&gt;
+&lt;h3&gt;책임주도설계&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;p&gt;⚠ 이미지의 모든 확장자는 소문자여야합니다.&lt;/p&gt;
+&lt;p&gt;객체는 &lt;strong&gt;책임&lt;/strong&gt;을 나눠갖도록 설계해야 한다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;4. 태그&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.823529411764707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB36AH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAT8hj//aAAwDAQACAAMAAAAQAA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABPxABf//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;tag example&apos; title=&apos;&apos; src=&apos;/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg&apos; srcset=&apos;/static/82ce4bec7f5360eef32a473171b181af/0b705/tag-example.jpg 170w,
-/static/82ce4bec7f5360eef32a473171b181af/31389/tag-example.jpg 340w,
-/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg 680w,
-/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg 737w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Frontmatter 의 태그를 통해 쉽게 문서를 분류하고 검색할 수 있습니다. 여러분의 모든 태그는 &lt;code class=&quot;language-text&quot;&gt;https://siteUrl/tags&lt;/code&gt; 경로에서 확인하고, 검색할 수 있습니다.&lt;/p&gt;
-&lt;h2&gt;5. 시리즈&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 677px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 17.058823529411764%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdqwSD//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABBQIv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAARD/2gAIAQEAAT8hF//aAAwDAQACAAMAAAAQ8A//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAYEAEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAQABPxAk0GGHCv/Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;series example&apos; title=&apos;&apos; src=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; srcset=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/0b705/series-example.jpg 170w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/31389/series-example.jpg 340w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg 677w&apos; sizes=&apos;(max-width: 677px) 100vw, 677px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;여러분이 연관된 여러개의 문서를 작성할 때 시리즈를 사용할 수 있습니다. Frontmatter 에 작성된 시리즈가 같은 문서끼리 묶여 문서 상단에 리스트로 표시됩니다. 시리즈는 일련의 순서가 있는 문서들을 작성할 때 유용하게 사용할 수 있습니다. 시리즈는 문서의 작성 날짜 순서대로 정렬됩니다.&lt;/p&gt;
-&lt;p&gt;현재 문서는 &lt;code class=&quot;language-text&quot;&gt;gatsby-starter-hoodie 로 블로그 시작하기&lt;/code&gt; 라는 시리즈로 설정되어 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🚀 2. 빠르게 시작하기]]></title><description><![CDATA[아래 단계를 따라서 여러분의 블로그를 시작하세요. 굉장히 쉬워요 😉. 1. Gatsby 사이트 생성 컴퓨터에 node.js 와 gatsby-cli 가 설치되어 있어야합니다. 2. 개발 서버 시작 이제 localhost:800…]]></description><link>https://blog.kimjunyoung.com/quick-start-kr/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/quick-start-kr/</guid><pubDate>Fri, 02 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;아래 단계를 따라서 여러분의 블로그를 시작하세요. 굉장히 쉬워요 😉.&lt;/p&gt;
-&lt;h2&gt;1. Gatsby 사이트 생성&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;컴퓨터에 &lt;strong&gt;node.js&lt;/strong&gt; 와 &lt;strong&gt;gatsby-cli&lt;/strong&gt; 가 설치되어 있어야합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npx gatsby new my-hoodie-blog https://github.com/devHudi/gatsby-starter-hoodie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. 개발 서버 시작&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd my-hoodie-blog
-$ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이제 localhost:8000 으로 여러분의 블로그를 접속할 수 있습니다.&lt;/p&gt;
-&lt;h2&gt;3. Github 레포지토리 생성&lt;/h2&gt;
-&lt;p&gt;Utterance 댓글 위젯은 &lt;strong&gt;Github 이슈 시스템&lt;/strong&gt; 기반입니다. 따라서 각 블로그 별 Github 레포지토리가 필요합니다. 또한 여러분이 Github Pages 혹은 Netlify 로 블로그를 배포하길 원한다면, Github 레포지토리는 필수입니다.&lt;/p&gt;
-&lt;p&gt;만약 Github 레포지토리를 생성하는 법을 모른다면, &lt;a href=&quot;https://docs.github.com/en/github/getting-started-with-github/create-a-repo&quot;&gt;Github 공식 문서&lt;/a&gt; 를 참조하세요.&lt;/p&gt;
-&lt;h3&gt;원격 레포지토리 등록&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote add origin https://github.com/{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;4. blog-config.js 작성&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;MY BLOG&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello, This is my blog&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YOUR NAME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;siteUrl&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://myblog.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://github.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;facebook&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.facebook.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;instagram&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.instagram.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.google.com/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;utterances&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pathname&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;gatsby-starter-hoodie 는 &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt; 라는 설정 파일을 제공합니다. 이 파일에서 블로그 정보, 작성자 프로필, Utterance 설정 등을 작성할 수 있습니다. 여러분 블로그 설정에 맞게 &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt; 를 설정하세요. 하지만, &lt;code class=&quot;language-text&quot;&gt;utterances.type&lt;/code&gt; 속성은 수정하지 않는 것을 권장합니다.&lt;/p&gt;
-&lt;h3&gt;프로필 이미지 변경&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;static/profile.png&lt;/code&gt; 에 위치한 이미지 파일을 원하는 이미지 파일로 교체하세요. 만약 파일명을 변경하고 싶다면, &lt;code class=&quot;language-text&quot;&gt;src/components/Bio.jsx&lt;/code&gt; 의 소스코드를 수정해야합니다.&lt;/p&gt;
-&lt;h2&gt;5. 포스트 추가&lt;/h2&gt;
-&lt;p&gt;마크다운 포스트는 &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt; 경로에 위치해있습니다. 해당 경로에서 글을 작성할 수 있습니다. &lt;a href=&quot;https://devHudi.github.io/gatsby-starter-hoodie/writing-guide&quot;&gt;여기를 클릭하여&lt;/a&gt; 더 자세한 글 작성 방법을 확인하세요.&lt;/p&gt;
-&lt;h2&gt;6. 블로그 배포하기&lt;/h2&gt;
-&lt;h3&gt;6-1 Netlify 를 통해&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.netlify.com/blog/2016/02/24/a-step-by-step-guide-gatsby-on-netlify/&quot;&gt;A Step-by-Step Guide: Gatsby on Netlify&lt;/a&gt; 문서를 참조하여, Netlify 를 Github 레포지토리와 연결할 수 있습니다. 이 과정은 어렵지 않습니다.&lt;/p&gt;
-&lt;p&gt;Github 레포지토리와 연결이 되었다면, Github 레포지토리에 변경사항이 발생할 때 마다 자동으로 여러분의 블로그에 배포됩니다.&lt;/p&gt;
-&lt;h3&gt;6-2. Github Pages 를 통해&lt;/h3&gt;
-&lt;h4&gt;상황 1&lt;/h4&gt;
-&lt;p&gt;레포지토리 이름이 &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME}.github.io&lt;/code&gt; 형태일 경우, 아래 명령어를 실행해주세요.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;상황 2&lt;/h4&gt;
-&lt;p&gt;레포지토리 이름이 &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME}.github.io&lt;/code&gt; 형태가 아닐 경우, 아래 명령어를 실행해주세요.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh-prefix-paths&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;만약 위와 같은 경우 &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; 에서 &lt;code class=&quot;language-text&quot;&gt;pathPrefix&lt;/code&gt; 를 여러분의 레포지토리 이름으로 바꿔야합니다.&lt;/p&gt;
-&lt;h3&gt;6-3. 다른 플랫폼&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 명령어로 Gastby 웹사이트를 빌드할 수 있습니다. 빌드 결과물은 &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; 에 저장됩니다. &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; 디렉토리를 여러분이 사용하는 플랫폼의 배포 명령을 통해 배포해주세요.&lt;/p&gt;
-&lt;h2&gt;7. 커스터마이징&lt;/h2&gt;
-&lt;h3&gt;프로젝트 구조&lt;/h3&gt;
-&lt;p&gt;아래 프로젝트 구조를 참고하여 커스터마이징 할 수 있습니다 🙊.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;├── node_modules
-├── contents
-│   └── posts // your articles are here
-├── public // build outputs are here
-└── src
-    ├── assets
-    │   └── theme // theme config is here
-    ├── components
-    │   └── Article
-    │       └── Body
-    │           └── StyledMarkdown
-    │               └── index.jsx // markdown styles are here
-    │   ...
-    ├── fonts // webfonts are here
-    ├── hooks
-    ├── images
-    ├── pages // page components are here
-    ├── reducers
-    ├── templates // post components are here
-    └── utils&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[🎇 1. gatsby-starter-hoodie 에 대하여]]></title><description><![CDATA[gatsby-starter-hoodie 에 대하여 gatsby-starter-hoodie 는 기술 블로그를 작성하기 위해 개발된 Gatsby 테마입니다. 마크다운과 많은 프로그래밍 언어의 코드 하이라이팅, 그리고 Katex…]]></description><link>https://blog.kimjunyoung.com/about-hoodie-kr/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/about-hoodie-kr/</guid><pubDate>Thu, 01 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;gatsby-starter-hoodie 에 대하여&lt;/h2&gt;
-&lt;p&gt;gatsby-starter-hoodie 는 기술 블로그를 작성하기 위해 개발된 Gatsby 테마입니다. 마크다운과 많은 프로그래밍 언어의 코드 하이라이팅, 그리고 Katex 문법을 지원합니다. 또한 태그와 시리즈를 통하여 쉽게 게시물을 분류할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;다크모드를 지원하는 깔끔한 디자인의 gatsby-starter-hoodie 로 여러분의 블로그를 시작하세요.&lt;/p&gt;
-&lt;h2&gt;주요 기능&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/1998/post/058a8fdc-8139-491c-9ca4-43b773476ebe/image.png&quot; alt=&quot;책임주도설계&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;마크다운&lt;/li&gt;
-&lt;li&gt;코드 하이라이팅&lt;/li&gt;
-&lt;li&gt;Katex 문법&lt;/li&gt;
-&lt;li&gt;다크모드 (OS 환경설정과 연동)&lt;/li&gt;
-&lt;li&gt;태그 분류&lt;/li&gt;
-&lt;li&gt;시리즈 분류&lt;/li&gt;
-&lt;li&gt;반응형 웹&lt;/li&gt;
-&lt;li&gt;SEO&lt;/li&gt;
-&lt;li&gt;Utterance (댓글 위젯)&lt;/li&gt;
+&lt;li&gt;사람(객체)의 책임: 주유 행동, 가속 요청&lt;/li&gt;
+&lt;li&gt;자동차(객체)의 책임: 주유 요청, 사람으로부터 가속 요청 시 응답&lt;/li&gt;
+&lt;li&gt;주유소(객체)의 책임: 사람으로부터 주유 요청 시 응답&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;시작&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;/quick-start-kr&quot;&gt;빠르게 시작하기&lt;/a&gt; 문서에서 블로그를 세팅하세요.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;&lt;strong&gt;즉, 책임주도 설계란 각 객체에게 책임을 부여해서 적절하게 상호작용할 수 있도록 설계하는 것.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;역할과 구현&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 자동차 객체를 버스에 맞춰 구현했는데 트럭이 필요하다면?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;역할(큰 틀)을 중심으로 구현&lt;/strong&gt;
+자동차(역할) &gt; 굴러감(책임) &gt; 승용차, 트럭, 버스(구현)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;승용차, 트럭, 버스의 공통적인 역할: 엑셀, 전진, 후진, 기름…&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;추후에 제한사항이 생길 수 있으므로 공통적인 역할 먼저, 세부적인 건 나중에 구현&lt;/strong&gt;
+원하는 기능만을 통해서 자율성을 가질 수 있도록 객체에게 맞는 책임을 잘 부여해야 함.
+잘 만들어진 객체지향은 신뢰할 수 있음.&lt;/p&gt;
+&lt;h3&gt;객체지향 프로그래밍의 4가지 특징&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. 추상화&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 캡슐화&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;한 부분이 망가져도 전체적인 서비스에는 영향이 없게끔 결합도는 낮게 설계해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3. 상속&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 다형성&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메서드 오버라이딩: 상위 → 하위 재정의&lt;/li&gt;
+&lt;li&gt;메서드 오버로딩: 같은 이름의 메서드 → 상황에 따라 다른 기능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;객체지향 설계원칙, SOLID&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. 단일 책임 원칙(SRP, Single Responsibility Principle)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;하나의 클래스는 하나의 책임만을 가져야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. 개방-폐쇄 원칙(OCP, Open-closed Principle)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;소프트웨어 요소는 확장에는 열려 있으나 변경에는 닫혀 있어야 한다.&lt;/li&gt;
+&lt;li&gt;기능을 변경하거나 확장할 수 있으면서 기능을 사용하는 코드는 수정하지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3. 리스코프 치환 원칙(LSP, Liskov Substitution Principle)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;객체는 프로그램의 정확성을 깨지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.&lt;/li&gt;
+&lt;li&gt;상위 타입의 객체를 하위 타입의 객체로 치환해도 상위 타입의 프로그램은 정상 작동해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;4. 인터페이스 분리 원칙(ISP, Interface Segregation Principle)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;하나의 인터페이스보다 여러 개의 인터페이스로 분리하는 것이 좋다.&lt;/li&gt;
+&lt;li&gt;인터페이스는 사용자(클라이언트)를 기준으로 분리해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;5. 의존관계 역전 원칙(DIP, Dependency Inversion Principle)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;추상화가 아닌 구체화에 의존해서는 안된다.&lt;/li&gt;
+&lt;li&gt;고수준 모듈은 저수준 모듈의 구현에 의존해서는 안된다.&lt;/li&gt;
+&lt;li&gt;저수준 모듈의 고수준 모듈에서 정의한 추상 타입에 의존해야 한다.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[🔥 다이나믹하게 프로그래밍해보자]]></title><description><![CDATA[다이나믹 프로그래밍이란? 다이나믹 프로그래밍(Dynamic Programming, DP…]]></description><link>https://blog.kimjunyoung.com/dynamic-programming/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/dynamic-programming/</guid><pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;다이나믹 프로그래밍이란?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;다이나믹 프로그래밍(Dynamic Programming, DP)&lt;/strong&gt;이란 하나의 문제를 단 한 번만 풀도록 하는 알고리즘이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;일반적으로 분할 정복 기법은 동일한 문제를 다시 푼다는 단점을 가지고 있다. 단순 분할 정복으로 풀게 되면 심각한 비효율성을 낳는 대표적인 예시로는 피보나치 수열이 있다.&lt;/p&gt;
+&lt;h2&gt;📜 피보나치 수열과 분할 정복&lt;/h2&gt;
+&lt;p&gt;피보나치 수열은 &lt;strong&gt;특정한 숫자를 구하기 위해 그 앞에 있는 숫자와 두 칸 앞에 있는 숫자의 합&lt;/strong&gt;을 구해야 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;피보나치 수열 점화식: &lt;code class=&quot;language-text&quot;&gt;D[i] = D[i-1] + D[i-2]&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;피보나치 수열의 초기 값은 &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt; 로 고정되므로 위 점화식에 적용하면 &lt;code class=&quot;language-text&quot;&gt;1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...&lt;/code&gt; 와 같이 나아갈 수 있다.
+만약 단순 분할 정복 기법을 이용해 피보나치 수열을 푼다면 어떻게 될까?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/1998/post/1392ab01-7f62-4f5b-87e5-30a623405193/image.png&quot; alt=&quot;출처: https://blog.naver.com/ndb796/221233570962&quot;&gt;&lt;/p&gt;
+&lt;p&gt;단순 분할 정복으로 피보나치 수열의 15번째 값인 &lt;code class=&quot;language-text&quot;&gt;D[15]&lt;/code&gt; 를 구하려면 &lt;code class=&quot;language-text&quot;&gt;D[14]&lt;/code&gt; 와 &lt;code class=&quot;language-text&quot;&gt;D[13]&lt;/code&gt; 을 계산해야 하고, &lt;code class=&quot;language-text&quot;&gt;D[14]&lt;/code&gt; 를 구하려면 &lt;code class=&quot;language-text&quot;&gt;D[13]&lt;/code&gt; 과 &lt;code class=&quot;language-text&quot;&gt;D[12]&lt;/code&gt; 를 계산해야 한다.
+이렇게 단순한 분할 정복 기법을 사용하면 이미 수행한 계산를 또 반복적으로 수행하기 때문에 &lt;strong&gt;굉장히!&lt;/strong&gt; 비효율적이게 된다.&lt;/p&gt;
+&lt;p&gt;아래는 단순하게 피보나치 수열을 구하는 과정을 JAVA로 구현한 코드이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 &lt;code class=&quot;language-text&quot;&gt;fybo&lt;/code&gt; 메서드(함수)에 &lt;code class=&quot;language-text&quot;&gt;10&lt;/code&gt; 을 넣으면 피보나치 수열의 10번째 값인 &lt;code class=&quot;language-text&quot;&gt;55&lt;/code&gt; 가 잘 출력된다. &lt;strong&gt;만약 &lt;code class=&quot;language-text&quot;&gt;fybo&lt;/code&gt; 메서드에 &lt;code class=&quot;language-text&quot;&gt;50&lt;/code&gt; 을 넣으면 어떻게 될까?&lt;/strong&gt;
+.
+.
+.
+&lt;em&gt;아마 우주가 멸망할 때까지 CPU가 달궈지고 결국엔 실행되지 않을 것이다...&lt;/em&gt;😮&lt;/p&gt;
+&lt;p&gt;이는 사실 당연한 결과로, 피보나치 수열이 1개만 증가해도 &lt;strong&gt;계산량은 2배로 늘어난다.&lt;/strong&gt; 위와 같은 방법으로 피보나치 수열의 50번째 값을 구하려면 2의 50제곱 즉, 1,000,000,000,000,000개가 넘는 계산량을 컴퓨터가 처리해야 한다는 것이다.&lt;/p&gt;
+&lt;h2&gt;🔥 DP의 등장&lt;/h2&gt;
+&lt;p&gt;다이나믹 프로그래밍은 다음의 두 가정 하에 사용할 수 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;큰 문제를 작은 문제로 나눌 수 있다.&lt;/li&gt;
+&lt;li&gt;작은 문제에서 구한 정답이 그 문제를 포함하는 큰 문제에서도 동일하다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;쉽게 말해, 크고 어려운 문제를 잘게 나누어 해결한 뒤에 전체의 답을 구하는 방법이다. 다만 이 과정에서 분할 정복과 다른 점은 &lt;strong&gt;메모이제이션(Memoization)&lt;/strong&gt;이 사용된다는 것이다. &lt;u&gt;이미 계산한 결과는 배열에 저장함으로써&lt;/u&gt; 나중에 동일한 계산을 해야 할 때 배열에서 꺼내오기만 하면 된다.&lt;/p&gt;
+&lt;h3&gt;📝 메모이제이션&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;메모이제이션(Memoization)&lt;/strong&gt;이란 동일한 계산을 반복해야 할 때 &lt;u&gt;이미 계산한 결과를 메모리(배열)에 저장&lt;/u&gt;해 두었다가 필요할 때 꺼내 씀으로써 중복 계산을 방지할 수 있게 하는 기법이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;다이나믹 프로그래밍의 메모이제이션 기법을 활용하면 우주멸망을 막을 수 있다(?)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; d &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;d&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; d&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; d&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 코드는 다이나믹 프로그래밍의 메모이제이션 기법을 활용해 작성한 JAVA 코드이다.&lt;/p&gt;
+&lt;p&gt;이미 계산된 결과는 배열 &lt;code class=&quot;language-text&quot;&gt;d&lt;/code&gt; 에 저장되기 때문에 한 번 구한 값을 다시 계산하는 일은 없으므로 &lt;strong&gt;순식간에!&lt;/strong&gt; 피보나치 수열의 30번째 값이 구해지는 것을 볼 수 있다.(50번째 값은 매우 크기 때문에 오버플로우가 발생하여 음수값이 나온다. 알고 싶다면 &lt;code class=&quot;language-text&quot;&gt;int&lt;/code&gt; 타입 대신 &lt;code class=&quot;language-text&quot;&gt;long&lt;/code&gt; 타입을 사용하자)&lt;/p&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1463&quot;&gt;백준 1463번&lt;/a&gt;을 다이나믹하게 풀어보아요&lt;/p&gt;
+&lt;h3&gt;ref&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.google.com/&quot; target=&quot;_blank&quot;&gt;[이것이 코딩테스트다] 저자, 나동빈님 블로그&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[🔎 클린코드 훑어보기]]></title><description><![CDATA[…]]></description><link>https://blog.kimjunyoung.com/clean-code/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/clean-code/</guid><pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;더러운 코드도 돌아는 간다. 하지만 코드가 깨끗하지 못하면 개발 조직은 기어간다. 매년 지저분한 코드로 수많은 시간과 상당한 자원이 낭비된다. 그래야 할 이유가 없다. 로버트 마틴은 이 책에서 혁명적인 패러다임을 제시한다. 코드를 읽어야 한다. 아주 많은 코드를. 그리고 코드를 읽으면서 그 코드의 무엇이 옳은지, 그른지 생각도 해야 한다. 좀 더 중요하게는 전문가로서 자신이 지니는 가치와 장인으로서 자기 작품(프로그램)에 대한 헌신을 돌아보게 된다. 코드를 읽고, 짜고 정리하는 과정에서 우리가 생각하는 방식을 묘사한 지식 기반을 얻는다.&lt;/p&gt;
+&lt;h2&gt;1. 의도를 분명히 밝혀라&lt;/h2&gt;
+&lt;p&gt;변수의 존재 이유, 기능, 사용법 등이 변수, 함수, 클래스명에 드러나야 한다. 의미를 함축하거나 독자가 사전지식을 갖고 있다고 가정하지 말자.&lt;/p&gt;
+&lt;h2&gt;2. 그릇된 정보를 피하라&lt;/h2&gt;
+&lt;p&gt;중의적으로 해석될 수 있는 이름을 지양하고 개발자에게는 특수한 의미를 가지는 단어를 변수명에 붙이지 말자. 또한 비슷해 보이는 명명에 주의하자&lt;/p&gt;
+&lt;h2&gt;3. 의미 있게 구분하라&lt;/h2&gt;
+&lt;p&gt;말이 안되는 단어, 숫자(a1, a2..)로 구분하는 것을 피하고 클래스 이름에 info, data와 같은 불용어를 붙이지 말자.&lt;/p&gt;
+&lt;h2&gt;4. 발음하기 쉬운 이름을 사용하라&lt;/h2&gt;
+&lt;h2&gt;5. 검색하기 쉬운 이름을 사용하라&lt;/h2&gt;
+&lt;p&gt;상수는 static final과 같이 정의해서 사용하자. 변수 이름의 길이는 변수의 범위에 비례해서 길어진다.&lt;/p&gt;
+&lt;h2&gt;6. 자신의 기억력을 자랑하지 마라&lt;/h2&gt;
+&lt;p&gt;독자가 한번 더 생각해 변환해야 할 만한 변수명을 쓰지 말자. 똑똑한 프로그래머와 전문가 프로그래머를 나누는 기준은 &lt;strong&gt;명료함&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;h2&gt;7. 클래스 이름에 대해&lt;/h2&gt;
+&lt;p&gt;동사 대신 명사 혹은 명사구를 사용하고 Manager, Processor, Data, Info와 같은 단어는 피하자.&lt;/p&gt;
+&lt;h2&gt;8. 메서드 이름&lt;/h2&gt;
+&lt;p&gt;동사 혹은 동사구를 사용하고 접근자, 변경자, 조건자는 get, set, is로 시작하자. 생성자를 오버로드할 경우 정적 팩토리 메서드를 사용하고, 해당 생성자를 private로 선언하자.&lt;/p&gt;
+&lt;h2&gt;9. 기발한 이름은 피하라&lt;/h2&gt;
+&lt;p&gt;특정 문화에서만 사용되는 재미있는 이름보다 의도를 분명히 표현하는 이름을 사용하자.&lt;/p&gt;
+&lt;h2&gt;10. 한 개념에 한 단어를 사용하라&lt;/h2&gt;
+&lt;p&gt;추상적인 개념 하나에 단어 하나를 사용하자&lt;/p&gt;
+&lt;h2&gt;11. 해법 영역(Solution Domain) 용어를 사용하자&lt;/h2&gt;
+&lt;p&gt;개발자라면 당연히 알고 있을 JobQueue, AccountVisitor 등을 사용하지 않을 이유가 없다. 전산용어, 알고리즘 이름, 패턴 이름, 수학적 용어 등은 피하자.&lt;/p&gt;
+&lt;h2&gt;12. 문제 영역(Problem Domain) 용어를 사용하자&lt;/h2&gt;
+&lt;p&gt;적절한 프로그래머 용어가 없거나 문제 영역과 관련이 깊은 용어의 경우 문제 영역 용어를 사용하자.&lt;/p&gt;
+&lt;h2&gt;13. 의미 있는 맥락을 추가하라&lt;/h2&gt;
+&lt;p&gt;클래스, 함수, namespace 등으로 감싸서 맥락을 표현하라. 그래도 불분명하다면 접두어를 사용하자.&lt;/p&gt;</content:encoded></item></channel></rss>
