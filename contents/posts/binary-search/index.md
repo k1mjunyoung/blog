@@ -1,6 +1,6 @@
 ---
 title:  "🔎 이진탐색과 분할정복"
-description: "이진"
+description: 
 date: 2024-01-10
 update: 
 tags:
