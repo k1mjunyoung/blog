@@ -8,12 +8,12 @@ tags:
 series: 
 ---
 
-## 서론
+## Overview
 
 인턴을 하던 회사에 첫 취업을 하고 UMS 개발 프로젝트를 맡게 되었다.
 
->   🧐 UMS란?<br>
-    UMS(Unified Messaging System, 통합메세징시스템)란 기존에 개별적으로 서비스되던 음성사서함, 팩스사서함, 자동응답, e메일 시스템을 통합한 것으로 사업자는 시스템도입비용을 줄이고 가입자는 단말기의 종류에 상관없이 개인메세지를 관리할 수 있다.
+>   **🧐 UMS란?**<br>
+>   UMS(Unified Messaging System, 통합메세징시스템)란 기존에 개별적으로 서비스되던 음성사서함, 팩스사서함, 자동응답, e메일 시스템을 통합한 것으로 사업자는 시스템도입비용을 줄이고 가입자는 단말기의 종류에 상관없이 개인메세지를 관리할 수 있다.
 
 우리 회사에서는 UMS로 기업이 SMS, MMS, 카카오 알림톡, 대용량 이메일 등을 다양한 형태의 메세지를 하나의 플랫폼에서 편리하게 이용할 수 있도록 하는 것 같다.
 
@@ -89,4 +89,4 @@ RabbitMQ는 AMQP(Advanced Message Queuing Protocol) 메세지 모델의 구현�
 
 RabbitMQ를 사용하면 컨테이너화된 메세지 브로커를 통해 여러 서비스를 분리할 수 있고 따라서 과부하와 같은 예외적인 상황을 방지할 수 있다.
 
-출처 [IBM Technology](https://youtu.be/7rkeORD4jSw?si=psWWrn-Gf9bkqtMp)
+[참고] [IBM Technology](https://youtu.be/7rkeORD4jSw?si=psWWrn-Gf9bkqtMp)
