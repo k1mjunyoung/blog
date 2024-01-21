@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of 🪐]]></title><description><![CDATA[안녕하세요. 주니어 개발자 김준영입니다.]]></description><link>https://blog.kimjunyoung.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jan 2024 06:50:48 GMT</lastBuildDate><item><title><![CDATA[🔎 이진탐색과 분할정복]]></title><description><![CDATA[…]]></description><link>https://blog.kimjunyoung.com/binary-search/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/binary-search/</guid><pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이진탐색이란&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of 🪐]]></title><description><![CDATA[안녕하세요. 주니어 개발자 김준영입니다.]]></description><link>https://blog.kimjunyoung.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Jan 2024 04:03:02 GMT</lastBuildDate><item><title><![CDATA[💬 메세지 큐와 RabbitMQ]]></title><description><![CDATA[Overview 인턴을 하던 회사에 첫 취업을 하고 UMS 개발 프로젝트를 맡게 되었다.   🧐 UMS란?
+  UMS(Unified Messaging System…]]></description><link>https://blog.kimjunyoung.com/rabbitMQ/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/rabbitMQ/</guid><pubDate>Sat, 20 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p&gt;인턴을 하던 회사에 첫 취업을 하고 UMS 개발 프로젝트를 맡게 되었다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;  &lt;strong&gt;🧐 UMS란?&lt;/strong&gt;&lt;br&gt;
+UMS(Unified Messaging System, 통합메세징시스템)란 기존에 개별적으로 서비스되던 음성사서함, 팩스사서함, 자동응답, e메일 시스템을 통합한 것으로 사업자는 시스템도입비용을 줄이고 가입자는 단말기의 종류에 상관없이 개인메세지를 관리할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;우리 회사에서는 UMS로 기업이 SMS, MMS, 카카오 알림톡, 대용량 이메일 등을 다양한 형태의 메세지를 하나의 플랫폼에서 편리하게 이용할 수 있도록 하는 것 같다.&lt;/p&gt;
+&lt;p&gt;본격적으로 현재 팀에서 진행하고 있는 프로젝트에 대한 설명을 들으면서 RabbitMQ와 Redis를 사용하고 있었고, 이에 대해 공부해야겠다고 생각했다.&lt;/p&gt;
+&lt;h2&gt;💬 메세지 큐와 메세지 브로커&lt;/h2&gt;
+&lt;p&gt;모놀로식 아키텍쳐&lt;em&gt;(하나의 서비스 또는 애플리케이션이 하나의 거대한 아키텍처를 가지는 전통적인 아키텍처)&lt;/em&gt; 시대에는 애플리케이션 구성요소가 긴밀하게 결합되어 있었다.&lt;/p&gt;
+&lt;p&gt;즉, 직접 연결되어있었다. 간단한 판매 애플리케이션 내에서 결제 서비스와 재고 서비스가 통신해야 되는 경우 일반적으로 TCP 연결을 통해 직접 수행된다.&lt;/p&gt;
+&lt;p&gt;하지만 이 경우에 몇가지 한계가 있었다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/dae7f957c7a25d90d795ccf9deaebc61/92844/checkout-to-inventory.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 31.76470588235294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAr0lEQVR42p2Ryw6DIBBF/f+fc+XGZRuNUqW+QRjmCpraGu2ihdzwmjm5w0T4YbCf7wNfxkSvQMv28KCcuiB6yDR9wPxKBFh7BBITCl2gmDdVpkKmMzh2u4wzKI2AlQKoK/D9BhYluG0Arc4OAyjuYiRDgnRMkescPfWr8yDDBh11oFYC0qt5gh8CLOszMDgYaFgTg9ugkUbMbj6Xbfydc1vZPi/sWan9G6K/m/KlOQulftiGXdn/2wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;직접 연결된 결제 서비스와 재고 서비스&apos; title=&apos;&apos; src=&apos;/static/dae7f957c7a25d90d795ccf9deaebc61/ca1dc/checkout-to-inventory.png&apos; srcset=&apos;/static/dae7f957c7a25d90d795ccf9deaebc61/e7570/checkout-to-inventory.png 170w,
+/static/dae7f957c7a25d90d795ccf9deaebc61/f46e7/checkout-to-inventory.png 340w,
+/static/dae7f957c7a25d90d795ccf9deaebc61/ca1dc/checkout-to-inventory.png 680w,
+/static/dae7f957c7a25d90d795ccf9deaebc61/02d09/checkout-to-inventory.png 1020w,
+/static/dae7f957c7a25d90d795ccf9deaebc61/92844/checkout-to-inventory.png 1032w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;직접 연결된 결제 서비스와 재고 서비스&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;결제시스템이 메세지를 보내자마자 다음 작업으로 넘어가기 전에 응답을 받아야 하는데, 최악의 경우에 재고 서비스가 다운되면 연결이 가능할 때까지 계속해서 시도한다는 것이다. 또는 한꺼번에 많은 결제가 발생하면 재고 서비스가 이를 따라잡지 못하고 전체 시스템이 정체될 수 있다. &lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/74ed651a140935050310c4181ded7370/a4588/message-queue.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 45.88235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNElEQVR42o2S2W6DMBBF8/9/1z5VSquWRpECgQgMjve5vbZTQvPSGI3MYh/OzHiHhyG8/h0pcuFmXUrr7Q7PDOEG+YUwZgUZemA4l3vo5S8wcrFLDiF52GQ3ptVC/EwLW4F5Xi7AJccAOXeEzqtxAU5RYW/e8eW+0YW+QL14JJpdk4HxE0HhZhogijBjAOcA72mo17QLUGJAMhp+HMrchwGv8wv2eo/GNjCBwMiNKYeD6AnStZDjAXJoaDQ+1NBYSM96dB2EHxWNRz9iiQumoHB1Y4FJsWRpsqF1Nc0Yq20IG0NuSOMb0vzJdD6YlV7/GELEVbUEmgLMMbZHpO7E+vF9e6qN2QIR3S2lUGNzdIQWyzJTwrBcvsxaTSVNYTMkN2bis7XPH5sMvUfuTaqp3hesXf4BuJHC5I7KWDYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;메세지 큐&apos; title=&apos;&apos; src=&apos;/static/74ed651a140935050310c4181ded7370/ca1dc/message-queue.png&apos; srcset=&apos;/static/74ed651a140935050310c4181ded7370/e7570/message-queue.png 170w,
+/static/74ed651a140935050310c4181ded7370/f46e7/message-queue.png 340w,
+/static/74ed651a140935050310c4181ded7370/ca1dc/message-queue.png 680w,
+/static/74ed651a140935050310c4181ded7370/02d09/message-queue.png 1020w,
+/static/74ed651a140935050310c4181ded7370/a4588/message-queue.png 1254w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;메세지 큐&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;이것이 바로 메세지 큐, 즉 메세지 브로커가 만들어진 이유이며 메세지 큐는 서로 통신해야 하는 두 서비스 사이에 미들웨어로 위치하게 된다. &lt;/p&gt;
+&lt;h3&gt;메세지 큐의 장점&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;분리(Decouple)&lt;/p&gt;
+&lt;p&gt;메세지 큐를 사용하면 결제 시 큐에 메세지를 추가한 후, 즉시 다음 작업으로 이동할 수 있다. 그럼 다음 마찬가지로 재고 서비스가 준비되면 큐에서 메세지를 처리하고 즉시 그 다음 메세지를 처리할 수 있다. 따라서 메시지 큐로 인해 두 응용프로그램이 분리된다. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;확장성(Scalable)&lt;/p&gt;
+&lt;p&gt;메세지 브로커는 확장성도 높일 수 있다. 한꺼번에 많은 결제가 발생하면 큐가 채워지기 시작하고 하나 이상의 메세지 소비 서비스(위 그림의 &lt;code class=&quot;language-text&quot;&gt;Inventory&lt;/code&gt; 서비스)가 큐에서 읽어 처리할 수 있다. 결제 서비스가 생성하는 작업량이 늘어나고 시스템 확장성이 향상된다. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;성능(Performent)&lt;/p&gt;
+&lt;p&gt;메세지 큐의 또 다른 큰 장점은 큐 자체가 자체 시스템에 존재할 수 있다는 것이다. 따라서 이 경우에 웹 애플리케이션이 수행하는 작업 중 일부를 오프로드해서 전체 시스템의 성능을 향상시킬 수 있다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;🐇 RabbitMQ&lt;/h2&gt;
+&lt;p&gt;RabbitMQ는 AMQP(Advanced Message Queuing Protocol) 메세지 모델의 구현이다. 이 유형의 메세지 모델을 사용하면 생산자(메세지를 생성하는 서비스)는 결제 서비스가 된다. 메세지 큐는 교환소(Exchange)에서 생성되는데, 쉽게 우체국이라고 생각하면 된다. 교환소는 모든 메세지를 수신한 다음 주소 지정 방법에 따라 배포하는데, 교환소는 많은 큐(대기열)에 연결될 수 있다. 예를 들어 아래 그림처럼 재고 서비스와 배송 서비스 두 가지에 연결할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/5733ca405f89ea78bc124b1e5e16c4c4/e3807/rabbitmq.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 51.764705882352935%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiElEQVR42m2SgW7bMAxE+/9/2LQYlhbZuiRdbNmyRFHk7SS3drNNBg1Dlo7HRz7gP8vdoaZQV1SvMLce6zfDav/vfP5eD+2VUkJV3TbVCqJFFF4qXlZBXqYUhMnyMGBaRibQry7aaxWUnFHOv+DXM/B+hYWBl/fs2lyVCJQRmifkbIgpo6YrfDoyXuD83hx29TAyAhAjbA6wKv1XKzHTseZ3ePiGOv/Ekh1LofOamC0D9SOaYOMw6sjSFIsLkufOsEpCKjNOcsIhHnBYnokhb/kbjobiH4ZtM9YZlQcSM2ZLHXZzJiYINWCuET+WIxYhDhWINodC7jN5sSpd6FD2km864CWfGK+YKN7gto6uJRsShSvdInxHjWfyM3KsKOkMH59hwyNchl2w8QnxiMv0CJXfm+DnWPRx4dN2lAmWwmpKRiYeKlOg9Dt7U3p2dikT8sco3PSGp/iEN3nDK5238Wnw3Nf+t9ItzuwuyzW7n8N+UARe97nKbMBFLpjJaarThuBuNSG7b8wf6d8RBgTqg3wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;RabbitMQ&apos; title=&apos;&apos; src=&apos;/static/5733ca405f89ea78bc124b1e5e16c4c4/ca1dc/rabbitmq.png&apos; srcset=&apos;/static/5733ca405f89ea78bc124b1e5e16c4c4/e7570/rabbitmq.png 170w,
+/static/5733ca405f89ea78bc124b1e5e16c4c4/f46e7/rabbitmq.png 340w,
+/static/5733ca405f89ea78bc124b1e5e16c4c4/ca1dc/rabbitmq.png 680w,
+/static/5733ca405f89ea78bc124b1e5e16c4c4/02d09/rabbitmq.png 1020w,
+/static/5733ca405f89ea78bc124b1e5e16c4c4/9d567/rabbitmq.png 1360w,
+/static/5733ca405f89ea78bc124b1e5e16c4c4/e3807/rabbitmq.png 1517w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;RabbitMQ&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;결제 서비스는 교환소에 메세지를 보낸다. 교환은 바인딩이라는 연결을 통해 큐에 연결되고, 이러한 바인딩은 바인딩 키로 참조된다. 그런 다음 재고 서비스가 큐를 구독한다. AMQP, RabbitMQ는 여기서 메세지 브로커의 역할을 한다. 이 메세지 모델의 가장 큰 장점 중 하나는 메세지가 시스템을 통해 다양한 유형으로 유연하게 이동할 수 있다는 점이다.&lt;/p&gt;
+&lt;h3&gt;메세지 교환 유형&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Fan-out exchange&lt;/p&gt;
+&lt;p&gt;Fan-out exchange을 사용하면 결제 메세지가 교환소에 생성되고 교환소는 메세지를 복제해서 알고 있는 모든 큐로 보내거나 직접 교환한다. 직접 교환의 경우, 결제 시 메세지가 생성되고, 해당 메세지는 라우팅 키를 받게 된다. 그리고 라우팅 키와 바운딩 키를 교환하여 정확히 일치하는 경우 해당 서비스로 이동하게 된다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Topic exchange&lt;/p&gt;
+&lt;p&gt;Topic exchange의 경우, 라우팅 키와 바인딩 키 사이의 부분 일치를 사용한다. 예를 들어 메세지에 &lt;code class=&quot;language-text&quot;&gt;shiop.shoes&lt;/code&gt;라는 라우팅 키가 있고, 바인딩 키가 &lt;code class=&quot;language-text&quot;&gt;ship.any&lt;/code&gt;이면 해당 메세지는 적절한 큐로 라우팅된다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hearder exchange&lt;/p&gt;
+&lt;p&gt;Header Exchange를 사용하면 라우팅 키가 완전히 무시되고 메세지는 헤더에 따라 시스템을 통해 이동된다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Default exchange&lt;/p&gt;
+&lt;p&gt;마지막으로 RabbitMQ에만 고유하는 Default Exchange는 기본 교환인 라우팅 키를 사용해서 만약 이 메세지의 라우팅 키가 &lt;code class=&quot;language-text&quot;&gt;inv&lt;/code&gt;라고 가정하면, 라우팅 키는 큐 자체의 이름과 연결된다. 따라서 큐의 이름이 &lt;code class=&quot;language-text&quot;&gt;inv&lt;/code&gt;인 재고 서비스로 라우팅된다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;RabbitMQ의 특징&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;RabbitMQ의 큰 이점은 클라우드 친화적이라는 것이다. Docker 또는 기타 컨테이너화 소프트웨어에 인스턴스를 배포할 수 있다. 또한 클러스터로 실행될 수 있으므로 내결함성이 있고 가용성이 높으며 처리량이 높다.&lt;/li&gt;
+&lt;li&gt;RabbitMQ는 교차 언어 통신을 할 수 있다. 결제 후 메세지가 생성되면 Javascript로 개발된 재고 서비스와 Python으로 개발된 배송 서비스 모두에서 처리할 수 있다.&lt;/li&gt;
+&lt;li&gt;보안이 우수하다.(FASL, LDAP, TLS 지원)&lt;/li&gt;
+&lt;li&gt;메세지 승인을 수행한다. 메세지는 큐에 존재하다가 소비 서비스에게 전달되면 소비자가 브로커에게 메세지 수신을 알릴 때까지 메세지는 큐에 유지된다. 소비 서비스가 메세지가 무사히 수신됐다고 브로커에게 알리면 메세지는 큐에서 제거되기 때문에 시스템에서 메세지가 손실되는 것을 방지할 수 있다.&lt;/li&gt;
+&lt;li&gt;관리가 용이하다. 브라우저 기반의 관리 UI와 추가적인 CLI 도구가 내장되어 있고, 그뿐만 아니라 오픈소스 커뮤니티에는 많은 플러그인들이 있다. RabbitMQ는 다른 메세지 모델(AMQP 091뿐만 아니라 MQTT, Stomp, AMQP 1.0등)을 지원할 정도로 발전했다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;RabbitMQ를 사용하면 컨테이너화된 메세지 브로커를 통해 여러 서비스를 분리할 수 있고 따라서 과부하와 같은 예외적인 상황을 방지할 수 있다.&lt;/p&gt;
+&lt;p&gt;[참고] &lt;a href=&quot;https://youtu.be/7rkeORD4jSw?si=psWWrn-Gf9bkqtMp&quot;&gt;IBM Technology&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🔎 이진탐색과 분할정복]]></title><description><![CDATA[…]]></description><link>https://blog.kimjunyoung.com/binary-search/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/binary-search/</guid><pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;이진탐색이란&lt;/h2&gt;
 &lt;p&gt;이진 탐색은 업다운 게임과 비슷하다. 찾고자 하는 정답이 포함된 범위 중 가운데를 검사하고, 정답과 비교하여 절반의 범위를 제외한다.&lt;/p&gt;
 &lt;h3&gt;장점&lt;/h3&gt;
 &lt;p&gt;선형 탐색&lt;em&gt;(배열이나 리스트의 처음부터 하나씩 찾는 방법)&lt;/em&gt;은 원소 개수에 비례하는 &lt;code class=&quot;language-text&quot;&gt;O(N)&lt;/code&gt;의 시간복잡도를 갖는데, 이진 탐색은 공간의 크기를 &lt;code class=&quot;language-text&quot;&gt;N/2^x&lt;/code&gt;로 줄여나가므로 &lt;code class=&quot;language-text&quot;&gt;O(logN)&lt;/code&gt;의 시간복잡도를 갖는다.&lt;/p&gt;
