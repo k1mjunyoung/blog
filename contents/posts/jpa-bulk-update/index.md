@@ -1,19 +1,21 @@
 ---
-title: "JPA 대량 데이터 한번에 UPDATE하기"
+title: "💪 JPA 대량 데이터 한번에 UPDATE하기"
 description: 
-date: 2023-03-29 
+date: 2024-03-29 
 update:
 tags:
   - jpa
 series: 
 ---
-# Bulk update
 
+## 마주한 이슈
 JPA로 List를 받아와서 수정 후 `saveAll()` 하는 기존 로직에서 hibernate 로그가 수없이 뜨는 걸 발견, JPA가 데이터 수만큼 건별로 Update하기 때문
 
 ```java
 List<Tbl080Block> findByRejectNum(String rejectNum);
 ```
+
+## Bulk update
 
 벌크 업데이트를 위해선 `@Modifying` 어노테이션을 사용해야 한다.
 
@@ -25,6 +27,8 @@ List<Tbl080Block> findByRejectNum(String rejectNum);
 @Query(nativeQuery = true, value = "UPDATE TBL_080_BLOCK SET EXP_DT = :nowDt WHERE REJECT_NUM = :rejectNum")
 int updateExpDtByRejectNum(@Param("rejectNum") String rejectNum, @Param("nowDt")LocalDateTime nowDt);
 ```
+
+### 사용 시 주의사항
 
 벌크 업데이트를 할 때, 주의사항이 있다.
 
@@ -46,6 +50,8 @@ int updateExpDtByRejectNum(@Param("rejectNum") String rejectNum, @Param("nowDt")
 @Query(nativeQuery = true, value = "UPDATE TBL_080_BLOCK SET EXP_DT = :nowDt WHERE REJECT_NUM = :rejectNum")
 int updateExpDtByRejectNum(@Param("rejectNum") String rejectNum, @Param("nowDt")LocalDateTime nowDt);
 ```
+
+### 트랜젝션?
 
 위와 같이 네이티브 쿼리를 적용하니 또 다른 에러가 발생했는데, Transaction 관련 에러였다.
 
