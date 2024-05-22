@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { title } from "../../../../blog-config"
+import { authorEn, title } from "../../../../blog-config"
 import { author } from "../../../../blog-config"
 
 const FooterWrapper = styled.footer`
@@ -21,7 +21,7 @@ const FooterWrapper = styled.footer`
 const Footer = () => {
   return (
     <FooterWrapper>
-      © 2023-2024. {author}
+      © 2023-2024. {authorEn}.
       {/* , Built with Gatsby and{" "}
       <a href="https://github.com/devHudi/gatsby-starter-hoodie" target="blank">
         gatsby-starter-hoodie

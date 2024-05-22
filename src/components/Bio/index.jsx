@@ -110,7 +110,7 @@ const Bio = () => {
     <BioWrapper id="bio">
       <Profile />
       <div>
-        <Author>@{author}</Author>
+        <Author>{author}</Author>
         <Description>{description}</Description>
         <LinksWrapper>
           <Link link={github}>

@@ -42,7 +42,7 @@ const Header = ({ title, date, tags, minToRead }) => {
     <Wrapper>
       <ArticleTitle> {title} </ArticleTitle>
       <Information>
-        <Author> @{author} </Author>
+        <Author> {author} </Author>
         <Date>· {date} </Date>
         <Date>· {minToRead} min read </Date>
       </Information>

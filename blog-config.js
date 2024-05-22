@@ -1,7 +1,8 @@
 module.exports = {
-  title: "🪐",
+  title: "김준영의 기술블로그",
   description: "안녕하세요. 주니어 개발자 김준영입니다.",
   author: "김준영",
+  authorEn: "kimjunyoung",
   siteUrl: "https://blog.kimjunyoung.com",
   links: {
     github: "https://github.com/k1mjunyoung",
