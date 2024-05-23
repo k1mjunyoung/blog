@@ -45,7 +45,8 @@ const Inner = styled.div`
 
 const BlogTitle = styled.span`
   letter-spacing: -1px;
-  font-family: "Source Code Pro", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 
+  Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: ${props => props.theme.colors.text};
