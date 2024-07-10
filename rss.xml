@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of 김준영의 기술블로그]]></title><description><![CDATA[안녕하세요. 주니어 개발자 김준영입니다.]]></description><link>https://blog.kimjunyoung.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 May 2024 02:35:49 GMT</lastBuildDate><item><title><![CDATA[💪 JPA 대량 데이터 한번에 UPDATE하기]]></title><description><![CDATA[마주한 이슈 JPA로 List를 받아와서 수정 후  하는 기존 로직에서 hibernate 로그가 수없이 뜨는 걸 발견, JPA가 데이터 수만큼 건별로 Update하기 때문 Bulk update…]]></description><link>https://blog.kimjunyoung.com/jpa-bulk-update/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/jpa-bulk-update/</guid><pubDate>Fri, 29 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;마주한 이슈&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of 김준영의 기술블로그]]></title><description><![CDATA[주니어 백엔드 개발자 김준영입니다.]]></description><link>https://blog.kimjunyoung.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jul 2024 03:00:44 GMT</lastBuildDate><item><title><![CDATA[외부에서 내 사설IP로 어떻게 접속할까?]]></title><description><![CDATA[모뎀 공인IP 할당 공유기 사설 네트워크 형성 사설IP 부여 라우터(L3, 개념적으로 게이트웨이) 역할 DHCP LAT 외부에서 내 컴퓨터로 접속? 외부 -> ISP -> 모뎀 -> 공유기(220.221.223.3:80 - 192.168.0.2:8…]]></description><link>https://blog.kimjunyoung.com/network/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/network/</guid><pubDate>Fri, 05 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ISP
+└──모뎀: 공인IP 할당
+    ├── PC(공인IP: 220.221.222.1)
+    ├── PC(공인IP: 220.221.222.2)
+    └── 공유기(공인IP: 220.221.222.3, 사설IP: 192.168.0.1)
+        ├── PC(사설IP: 192.168.0.2)
+        └── TV(사설IP: 192.168.0.3)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;모뎀&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;공인IP 할당&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;공유기&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;사설 네트워크 형성&lt;/li&gt;
+&lt;li&gt;사설IP 부여&lt;/li&gt;
+&lt;li&gt;라우터(L3, 개념적으로 게이트웨이) 역할&lt;/li&gt;
+&lt;li&gt;DHCP&lt;/li&gt;
+&lt;li&gt;LAT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;외부에서 내 컴퓨터로 접속?&lt;/h2&gt;
+&lt;p&gt;외부 -&gt; ISP -&gt; 모뎀 -&gt; 공유기(220.221.223.3:80 - 192.168.0.2:80 포트포워딩) -&gt; PC(192.168.0.2:80)&lt;/p&gt;
+&lt;h2&gt;허브와 스위치&lt;/h2&gt;
+&lt;h3&gt;허브&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;OSI L1&lt;/li&gt;
+&lt;li&gt;IP주소 할당하는 기능 X&lt;/li&gt;
+&lt;li&gt;연결된 모든 기기로 전송&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;스위치&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;OSI L2&lt;/li&gt;
+&lt;li&gt;IP주소 할당하는 기능 X&lt;/li&gt;
+&lt;li&gt;기기들의 MAC주소 저장&lt;/li&gt;
+&lt;li&gt;브로드캐스트(모든 기기들에게 목적지가 당신인지 확인)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[💪 JPA 대량 데이터 한번에 UPDATE하기]]></title><description><![CDATA[마주한 이슈 JPA로 List를 받아와서 수정 후  하는 기존 로직에서 hibernate 로그가 수없이 뜨는 걸 발견, JPA가 데이터 수만큼 건별로 Update하기 때문 Bulk update…]]></description><link>https://blog.kimjunyoung.com/jpa-bulk-update/</link><guid isPermaLink="false">https://blog.kimjunyoung.com/jpa-bulk-update/</guid><pubDate>Fri, 29 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;마주한 이슈&lt;/h2&gt;
 &lt;p&gt;JPA로 List를 받아와서 수정 후 &lt;code class=&quot;language-text&quot;&gt;saveAll()&lt;/code&gt; 하는 기존 로직에서 hibernate 로그가 수없이 뜨는 걸 발견, JPA가 데이터 수만큼 건별로 Update하기 때문&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Tbl080Block&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;findByRejectNum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; rejectNum&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Bulk update&lt;/h2&gt;
