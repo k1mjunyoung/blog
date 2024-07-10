@@ -1,7 +1,7 @@
 ---
-title: "모뎀, 허브, 스위치, 공유기, 라우터"
+title: "외부에서 내 사설IP로 어떻게 접속할까?"
 description: 
-date: 2024-07.05
+date: 2024-07-05
 update:
 tags:
   - network
